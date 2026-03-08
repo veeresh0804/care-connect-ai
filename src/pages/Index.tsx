@@ -43,6 +43,7 @@ const Index = () => {
     reports: "Medical Report Generator",
     workflow: "Workflow Automation",
     community: "Community Health Worker",
+    portal: "Patient Portal",
     privacy: "Privacy & Security",
   };
 
