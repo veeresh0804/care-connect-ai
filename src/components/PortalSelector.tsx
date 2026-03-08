@@ -176,7 +176,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
       </header>
 
       {/* Announcements Ticker */}
-      <div className="bg-accent border-b border-border overflow-hidden">
+      <div className="bg-accent border-b border-border overflow-hidden" role="marquee" aria-label="Latest announcements" aria-live="off">
         <div className="flex items-center">
           <div className="bg-primary px-2 sm:px-3 py-1.5 text-[10px] font-semibold text-primary-foreground shrink-0 flex items-center gap-1">
             <Megaphone className="w-3 h-3" /> <span className="hidden sm:inline">LATEST</span>
