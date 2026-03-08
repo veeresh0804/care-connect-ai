@@ -484,7 +484,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Public Feedback (#19) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Public feedback">
           <div className="max-w-5xl mx-auto">
             <SectionHeading title="Public Feedback" subtitle="Rate and review healthcare services" icon={Star} />
             <div className="bg-card rounded-lg p-5 sm:p-6 shadow-card border border-border text-center">
