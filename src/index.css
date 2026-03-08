@@ -76,6 +76,69 @@
     --sidebar-border: 215 25% 22%;
     --sidebar-ring: 214 80% 52%;
   }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 120 100% 40%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 50 100% 20%;
+    --accent-foreground: 50 100% 90%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 0 0% 40%;
+    --input: 0 0% 40%;
+    --ring: 50 100% 50%;
+
+    --warning: 38 100% 55%;
+    --warning-foreground: 0 0% 0%;
+    --success: 120 100% 40%;
+    --success-foreground: 0 0% 0%;
+    --emergency: 0 100% 60%;
+    --urgent: 38 100% 55%;
+    --routine: 50 100% 50%;
+    --info: 200 100% 60%;
+    --info-foreground: 0 0% 0%;
+
+    --govt-saffron: 24 100% 55%;
+    --govt-green: 120 100% 40%;
+    --govt-blue: 50 100% 50%;
+    --govt-navy: 0 0% 8%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(50, 100%, 50%), hsl(50, 100%, 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 8%));
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 5%), hsl(0, 0%, 0%));
+
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 100% / 0.1);
+    --shadow-elevated: 0 4px 16px -2px hsl(0 0% 100% / 0.15);
+    --shadow-glow: 0 0 20px hsl(50 100% 50% / 0.3);
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 50 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 30%;
+    --sidebar-ring: 50 100% 50%;
+  }
 }
 
 @layer base {

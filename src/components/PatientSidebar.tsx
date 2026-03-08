@@ -79,7 +79,7 @@ const PatientSidebar = ({ activeTab, onTabChange, onSwitchPortal }: PatientSideb
         </div>
       )}
 
-      <nav className="flex-1 py-3 space-y-0.5 px-2 overflow-y-auto">
+      <nav className="flex-1 py-3 space-y-0.5 px-2 overflow-y-auto" role="navigation" aria-label="Patient portal navigation">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
           return (
@@ -138,7 +138,7 @@ const PatientSidebar = ({ activeTab, onTabChange, onSwitchPortal }: PatientSideb
         {mobileOpen && (
           <>
             <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setMobileOpen(false)} />
-            <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 gradient-hero flex flex-col shadow-xl">
+            <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 gradient-hero flex flex-col shadow-xl" role="navigation" aria-label="Patient portal sidebar">
               {sidebarContent}
             </aside>
           </>
@@ -148,7 +148,7 @@ const PatientSidebar = ({ activeTab, onTabChange, onSwitchPortal }: PatientSideb
   }
 
   return (
-    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`}>
+    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`} role="navigation" aria-label="Patient portal sidebar">
       {sidebarContent}
     </aside>
   );

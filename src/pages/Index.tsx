@@ -93,7 +93,7 @@ const Index = () => {
                 </div>
               </div>
             </header>
-            <main className="flex-1 overflow-y-auto p-3 sm:p-6">
+            <main id="main-content" className="flex-1 overflow-y-auto p-3 sm:p-6" role="main" aria-label="Hospital dashboard content">
               {renderHospitalContent()}
             </main>
           </div>
@@ -160,7 +160,7 @@ const Index = () => {
               </div>
             </div>
           </header>
-          <main className="flex-1 overflow-y-auto p-3 sm:p-6">
+          <main id="main-content" className="flex-1 overflow-y-auto p-3 sm:p-6" role="main" aria-label="Patient portal content">
             {renderPatientContent()}
           </main>
         </div>

@@ -102,10 +102,13 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:p-3 focus:text-sm">
+        Skip to Main Content
+      </a>
       <GovtHeader />
 
       {/* Main Header with Emblem */}
-      <header className="bg-card border-b border-border">
+      <header className="bg-card border-b border-border" role="banner" aria-label="Digital Health Portal header">
         <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-primary/30 flex items-center justify-center bg-accent shrink-0">
@@ -135,7 +138,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </div>
 
         {/* Mega Nav - Desktop: horizontal, Mobile: vertical dropdown */}
-        <nav className="border-t border-border bg-muted/50">
+        <nav className="border-t border-border bg-muted/50" role="navigation" aria-label="Main navigation">
           {/* Desktop nav */}
           <div className="hidden md:flex max-w-7xl mx-auto px-4 items-center gap-0.5 overflow-x-auto">
             {megaNavItems.map((item, i) => (
@@ -173,7 +176,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
       </header>
 
       {/* Announcements Ticker */}
-      <div className="bg-accent border-b border-border overflow-hidden">
+      <div className="bg-accent border-b border-border overflow-hidden" role="marquee" aria-label="Latest announcements" aria-live="off">
         <div className="flex items-center">
           <div className="bg-primary px-2 sm:px-3 py-1.5 text-[10px] font-semibold text-primary-foreground shrink-0 flex items-center gap-1">
             <Megaphone className="w-3 h-3" /> <span className="hidden sm:inline">LATEST</span>
@@ -187,9 +190,9 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
       </div>
 
       {/* Main scrollable content */}
-      <main id="main-content" className="flex-1 overflow-y-auto">
+      <main id="main-content" className="flex-1 overflow-y-auto" role="main" aria-label="Main content">
         {/* ── Hero ── */}
-        <section className="gradient-hero py-10 sm:py-16 relative overflow-hidden">
+        <section className="gradient-hero py-10 sm:py-16 relative overflow-hidden" aria-label="Hero section">
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
           <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 text-primary-foreground/90 text-[10px] font-medium mb-4 sm:mb-5 border border-primary/30">
@@ -226,7 +229,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Service Cards (#4) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Our services">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Our Services" subtitle="Access comprehensive digital health services" icon={Heart} />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
@@ -245,7 +248,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Portal Selection ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Portal selection">
           <div className="max-w-5xl mx-auto">
             <SectionHeading title="Select Your Portal" subtitle="Choose your role to access personalized healthcare services" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -299,7 +302,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Statistics (#5) ── */}
-        <section className="py-8 sm:py-12 px-4 gradient-hero">
+        <section className="py-8 sm:py-12 px-4 gradient-hero" aria-label="Public health statistics">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-lg sm:text-xl font-bold text-primary-foreground">Public Health Statistics</h2>
@@ -325,7 +328,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Facility Locator (#6) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Healthcare facility locator">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Find Healthcare Services Near You" subtitle="Locate hospitals, clinics, pharmacies, and diagnostic labs" icon={MapPin} />
             <div className="bg-card rounded-lg border border-border shadow-card p-4 sm:p-6">
@@ -370,7 +373,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Government Health Programs (#7) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Government health programs">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Government Health Programs" subtitle="National public health initiatives for all citizens" icon={Award} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -394,7 +397,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Health Awareness (#9) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Health awareness resources">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Health Awareness Resources" subtitle="Educational content for better public health" icon={BookOpen} />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -415,7 +418,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Download Center (#10) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Download center">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Download Center" subtitle="Access official forms and documents" icon={Download} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -439,7 +442,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Trusted Doctors (#18) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Trusted doctors">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Trusted Doctors" subtitle="Verified healthcare professionals" icon={Stethoscope} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -452,7 +455,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── District Coverage Map (#20) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="District telemedicine coverage">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="District Telemedicine Coverage" subtitle="Nationwide deployment status" icon={Globe} />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
@@ -481,7 +484,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Public Feedback (#19) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Public feedback">
           <div className="max-w-5xl mx-auto">
             <SectionHeading title="Public Feedback" subtitle="Rate and review healthcare services" icon={Star} />
             <div className="bg-card rounded-lg p-5 sm:p-6 shadow-card border border-border text-center">
@@ -500,7 +503,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Helpdesk (#11) ── */}
-        <section className="py-8 sm:py-12 px-4 gradient-hero">
+        <section className="py-8 sm:py-12 px-4 gradient-hero" aria-label="Citizen helpdesk">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-lg sm:text-xl font-bold text-primary-foreground">24/7 Citizen Helpdesk</h2>
@@ -530,7 +533,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Mobile App Promotion (#16) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Mobile app download">
           <div className="max-w-5xl mx-auto">
             <div className="bg-card rounded-lg p-5 sm:p-8 shadow-card border border-border flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl gradient-primary flex items-center justify-center shrink-0">
@@ -553,7 +556,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Transparency Footer (#12) ── */}
-        <footer className="bg-foreground text-background">
+        <footer className="bg-foreground text-background" role="contentinfo" aria-label="Site footer">
           <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div>
