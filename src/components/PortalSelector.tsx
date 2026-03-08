@@ -102,10 +102,13 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:p-3 focus:text-sm">
+        Skip to Main Content
+      </a>
       <GovtHeader />
 
       {/* Main Header with Emblem */}
-      <header className="bg-card border-b border-border">
+      <header className="bg-card border-b border-border" role="banner" aria-label="Digital Health Portal header">
         <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-primary/30 flex items-center justify-center bg-accent shrink-0">
