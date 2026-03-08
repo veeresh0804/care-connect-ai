@@ -1,5 +1,7 @@
 import { useState } from "react";
-import Sidebar from "@/components/Sidebar";
+import PortalSelector from "@/components/PortalSelector";
+import HospitalSidebar from "@/components/HospitalSidebar";
+import PatientSidebar from "@/components/PatientSidebar";
 import DashboardOverview from "@/components/DashboardOverview";
 import AIDiagnostics from "@/components/AIDiagnostics";
 import PatientMonitoring from "@/components/PatientMonitoring";
@@ -11,50 +13,118 @@ import EmergencyAlerts from "@/components/EmergencyAlerts";
 import MedicalReportGen from "@/components/MedicalReportGen";
 import CommunityHealth from "@/components/CommunityHealth";
 import PatientPortal from "@/components/PatientPortal";
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, Building2 } from "lucide-react";
+
+type PortalType = "selector" | "hospital" | "patient";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const [portal, setPortal] = useState<PortalType>("selector");
+  const [hospitalTab, setHospitalTab] = useState("dashboard");
+  const [patientTab, setPatientTab] = useState("overview");
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "dashboard": return <DashboardOverview />;
-      case "diagnostics": return <AIDiagnostics />;
+  if (portal === "selector") {
+    return <PortalSelector onSelect={(p) => setPortal(p)} />;
+  }
+
+  // Hospital Portal
+  if (portal === "hospital") {
+    const renderHospitalContent = () => {
+      switch (hospitalTab) {
+        case "dashboard": return <DashboardOverview />;
+        case "diagnostics": return <AIDiagnostics />;
+        case "voice": return <VoiceAssistant />;
+        case "predictive": return <PredictiveRisk />;
+        case "monitoring": return <PatientMonitoring />;
+        case "emergency": return <EmergencyAlerts />;
+        case "reports": return <MedicalReportGen />;
+        case "workflow": return <WorkflowDashboard />;
+        case "community": return <CommunityHealth />;
+        case "privacy": return <PrivacyPanel />;
+        default: return <DashboardOverview />;
+      }
+    };
+
+    const hospitalTitles: Record<string, string> = {
+      dashboard: "Hospital Dashboard",
+      diagnostics: "AI Diagnostics",
+      voice: "Voice Health Assistant",
+      predictive: "Predictive Risk Engine",
+      monitoring: "Patient Monitoring",
+      emergency: "Emergency Alerts",
+      reports: "Medical Report Generator",
+      workflow: "Workflow Automation",
+      community: "Community Health Worker",
+      privacy: "Privacy & Security",
+    };
+
+    return (
+      <div className="flex h-screen bg-background overflow-hidden">
+        <HospitalSidebar activeTab={hospitalTab} onTabChange={setHospitalTab} onSwitchPortal={() => setPortal("selector")} />
+        <div className="flex-1 flex flex-col min-w-0">
+          <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
+            <div>
+              <div className="flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-primary" />
+                <h1 className="text-sm font-semibold text-foreground">{hospitalTitles[hospitalTab] || "Dashboard"}</h1>
+              </div>
+              <p className="text-[11px] text-muted-foreground">MedAI Hospital Administration</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
+                <Search className="w-4 h-4" />
+              </button>
+              <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground relative">
+                <Bell className="w-4 h-4" />
+                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
+              </button>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted">
+                <div className="w-6 h-6 rounded-full gradient-hero flex items-center justify-center">
+                  <User className="w-3 h-3 text-sidebar-foreground" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-medium text-foreground">Dr. Sharma</p>
+                  <p className="text-[8px] text-muted-foreground">Admin</p>
+                </div>
+              </div>
+            </div>
+          </header>
+          <main className="flex-1 overflow-y-auto p-6">
+            {renderHospitalContent()}
+          </main>
+        </div>
+      </div>
+    );
+  }
+
+  // Patient Portal
+  const renderPatientContent = () => {
+    switch (patientTab) {
       case "voice": return <VoiceAssistant />;
-      case "predictive": return <PredictiveRisk />;
-      case "monitoring": return <PatientMonitoring />;
       case "emergency": return <EmergencyAlerts />;
-      case "reports": return <MedicalReportGen />;
-      case "workflow": return <WorkflowDashboard />;
-      case "community": return <CommunityHealth />;
-      case "portal": return <PatientPortal />;
-      case "privacy": return <PrivacyPanel />;
-      default: return <DashboardOverview />;
+      default: return <PatientPortal key={patientTab} initialTab={patientTab} />;
     }
   };
 
-  const tabTitles: Record<string, string> = {
-    dashboard: "Dashboard",
-    diagnostics: "AI Diagnostics",
+  const patientTitles: Record<string, string> = {
+    overview: "My Dashboard",
+    reports: "Medical Reports",
+    prescriptions: "Prescriptions",
+    appointments: "Appointments",
+    health: "Health Monitor",
+    records: "Health Records",
+    family: "Family Management",
     voice: "Voice Health Assistant",
-    predictive: "Predictive Risk Engine",
-    monitoring: "Patient Monitoring",
-    emergency: "Emergency Alerts",
-    reports: "Medical Report Generator",
-    workflow: "Workflow Automation",
-    community: "Community Health Worker",
-    portal: "Patient Portal",
-    privacy: "Privacy & Security",
+    emergency: "Emergency",
   };
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <PatientSidebar activeTab={patientTab} onTabChange={setPatientTab} onSwitchPortal={() => setPortal("selector")} />
       <div className="flex-1 flex flex-col min-w-0">
         <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
           <div>
-            <h1 className="text-sm font-semibold text-foreground">{tabTitles[activeTab] || "Dashboard"}</h1>
-            <p className="text-[11px] text-muted-foreground">MedAI HealthTech Platform</p>
+            <h1 className="text-sm font-semibold text-foreground">{patientTitles[patientTab] || "My Dashboard"}</h1>
+            <p className="text-[11px] text-muted-foreground">MedAI Patient Portal</p>
           </div>
           <div className="flex items-center gap-3">
             <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
@@ -64,13 +134,19 @@ const Index = () => {
               <Bell className="w-4 h-4" />
               <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
             </button>
-            <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-              <User className="w-4 h-4 text-primary-foreground" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted">
+              <div className="w-6 h-6 rounded-full gradient-primary flex items-center justify-center">
+                <User className="w-3 h-3 text-primary-foreground" />
+              </div>
+              <div>
+                <p className="text-[10px] font-medium text-foreground">Ravi Kumar</p>
+                <p className="text-[8px] text-muted-foreground">Patient</p>
+              </div>
             </div>
           </div>
         </header>
         <main className="flex-1 overflow-y-auto p-6">
-          {renderContent()}
+          {renderPatientContent()}
         </main>
       </div>
     </div>
