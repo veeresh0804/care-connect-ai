@@ -10,6 +10,7 @@ import PredictiveRisk from "@/components/PredictiveRisk";
 import EmergencyAlerts from "@/components/EmergencyAlerts";
 import MedicalReportGen from "@/components/MedicalReportGen";
 import CommunityHealth from "@/components/CommunityHealth";
+import PatientPortal from "@/components/PatientPortal";
 import { Bell, Search, User } from "lucide-react";
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
       case "reports": return <MedicalReportGen />;
       case "workflow": return <WorkflowDashboard />;
       case "community": return <CommunityHealth />;
+      case "portal": return <PatientPortal />;
       case "privacy": return <PrivacyPanel />;
       default: return <DashboardOverview />;
     }
@@ -41,6 +43,7 @@ const Index = () => {
     reports: "Medical Report Generator",
     workflow: "Workflow Automation",
     community: "Community Health Worker",
+    portal: "Patient Portal",
     privacy: "Privacy & Security",
   };
 
