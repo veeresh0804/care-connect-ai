@@ -55,7 +55,8 @@ const VoiceAssistant = () => {
   ]);
   const [inputText, setInputText] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [speechSupported, setSpeechSupported] = useState(true);
 
