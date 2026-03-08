@@ -133,15 +133,15 @@ const Index = () => {
       <div className="flex flex-1 min-h-0">
         <PatientSidebar activeTab={patientTab} onTabChange={setPatientTab} onSwitchPortal={() => setPortal("selector")} />
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
-            <div>
+          <header className="flex items-center justify-between px-3 sm:px-6 py-3 border-b border-border bg-card">
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <Landmark className="w-4 h-4 text-secondary" />
-                <h1 className="text-sm font-semibold text-foreground">{patientTitles[patientTab] || "My Dashboard"}</h1>
+                <Landmark className="w-4 h-4 text-secondary shrink-0" />
+                <h1 className="text-xs sm:text-sm font-semibold text-foreground truncate">{patientTitles[patientTab] || "My Dashboard"}</h1>
               </div>
-              <p className="text-[11px] text-muted-foreground">Digital Health Mission · Patient Portal</p>
+              <p className="text-[10px] sm:text-[11px] text-muted-foreground hidden sm:block">Digital Health Mission · Patient Portal</p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground">
                 <Search className="w-4 h-4" />
               </button>
@@ -149,7 +149,7 @@ const Index = () => {
                 <Bell className="w-4 h-4" />
                 <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
               </button>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted">
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted">
                 <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
                   <User className="w-3 h-3 text-secondary-foreground" />
                 </div>
@@ -160,7 +160,7 @@ const Index = () => {
               </div>
             </div>
           </header>
-          <main className="flex-1 overflow-y-auto p-6">
+          <main className="flex-1 overflow-y-auto p-3 sm:p-6">
             {renderPatientContent()}
           </main>
         </div>
