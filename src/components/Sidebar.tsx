@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
   { icon: FileText, label: "Report Generator", id: "reports" },
   { icon: Calendar, label: "Workflow", id: "workflow" },
   { icon: Users, label: "Community Health", id: "community" },
+  { icon: Clipboard, label: "Patient Portal", id: "portal" },
   { icon: Shield, label: "Privacy & Security", id: "privacy" },
 ];
 
