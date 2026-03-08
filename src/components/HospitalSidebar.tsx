@@ -63,7 +63,7 @@ const HospitalSidebar = ({ activeTab, onTabChange, onSwitchPortal }: HospitalSid
         )}
       </div>
 
-      <nav className="flex-1 py-3 space-y-0.5 px-2 overflow-y-auto">
+      <nav className="flex-1 py-3 space-y-0.5 px-2 overflow-y-auto" role="navigation" aria-label="Hospital portal navigation">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
           return (
