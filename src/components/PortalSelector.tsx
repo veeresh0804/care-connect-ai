@@ -442,7 +442,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Trusted Doctors (#18) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Trusted doctors">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Trusted Doctors" subtitle="Verified healthcare professionals" icon={Stethoscope} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
