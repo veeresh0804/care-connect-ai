@@ -503,7 +503,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Helpdesk (#11) ── */}
-        <section className="py-8 sm:py-12 px-4 gradient-hero">
+        <section className="py-8 sm:py-12 px-4 gradient-hero" aria-label="Citizen helpdesk">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-lg sm:text-xl font-bold text-primary-foreground">24/7 Citizen Helpdesk</h2>
