@@ -13,6 +13,7 @@ import EmergencyAlerts from "@/components/EmergencyAlerts";
 import MedicalReportGen from "@/components/MedicalReportGen";
 import CommunityHealth from "@/components/CommunityHealth";
 import PatientPortal from "@/components/PatientPortal";
+import VideoConsultation from "@/components/portal/VideoConsultation";
 import { Bell, Search, User, Building2 } from "lucide-react";
 
 type PortalType = "selector" | "hospital" | "patient";
