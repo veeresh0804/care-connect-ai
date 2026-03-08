@@ -229,7 +229,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Service Cards (#4) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Our services">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Our Services" subtitle="Access comprehensive digital health services" icon={Heart} />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
