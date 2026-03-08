@@ -13,7 +13,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+      sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+      body: ['Inter', 'system-ui', 'sans-serif'],
       mono: ['IBM Plex Mono', 'monospace'],
     },
     extend: {
@@ -63,6 +64,12 @@ export default {
           DEFAULT: "hsl(var(--info))",
           foreground: "hsl(var(--info-foreground))",
         },
+        govt: {
+          saffron: "hsl(var(--govt-saffron))",
+          green: "hsl(var(--govt-green))",
+          blue: "hsl(var(--govt-blue))",
+          navy: "hsl(var(--govt-navy))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -81,20 +88,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
