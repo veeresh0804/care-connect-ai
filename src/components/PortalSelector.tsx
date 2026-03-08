@@ -533,7 +533,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Mobile App Promotion (#16) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Mobile app download">
           <div className="max-w-5xl mx-auto">
             <div className="bg-card rounded-lg p-5 sm:p-8 shadow-card border border-border flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl gradient-primary flex items-center justify-center shrink-0">
