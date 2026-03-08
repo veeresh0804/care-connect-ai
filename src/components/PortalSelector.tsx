@@ -455,7 +455,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── District Coverage Map (#20) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="District telemedicine coverage">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="District Telemedicine Coverage" subtitle="Nationwide deployment status" icon={Globe} />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
