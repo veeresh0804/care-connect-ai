@@ -2,12 +2,8 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Mic, MicOff, Volume2, Globe, MessageSquare, Sparkles, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-declare global {
-  interface Window {
-    SpeechRecognition: typeof SpeechRecognition;
-    webkitSpeechRecognition: typeof SpeechRecognition;
-  }
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const SpeechRecognitionAPI = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
 type Language = { code: string; label: string; bcp47: string };
 
