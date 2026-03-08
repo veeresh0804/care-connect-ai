@@ -329,14 +329,14 @@ const PatientChat = () => {
                     <Stethoscope className="w-5 h-5 text-primary" />
                   </div>
                   {selectedDoctor.online && (
-                    <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border-2 border-card" />
+                    <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-card" />
                   )}
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{selectedDoctor.doctorName}</p>
                   <p className="text-[10px] text-muted-foreground">
                     {selectedDoctor.online ? (
-                      <span className="text-green-500">● Online</span>
+                      <span className="text-emerald-500">● Online</span>
                     ) : (
                       "Last seen 3 hours ago"
                     )}
