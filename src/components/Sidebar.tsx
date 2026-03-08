@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Activity,
   Clipboard,
   Brain,
   LayoutDashboard,
