@@ -418,7 +418,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Download Center (#10) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Download center">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Download Center" subtitle="Access official forms and documents" icon={Download} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
