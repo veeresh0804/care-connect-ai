@@ -328,7 +328,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Facility Locator (#6) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Healthcare facility locator">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Find Healthcare Services Near You" subtitle="Locate hospitals, clinics, pharmacies, and diagnostic labs" icon={MapPin} />
             <div className="bg-card rounded-lg border border-border shadow-card p-4 sm:p-6">
