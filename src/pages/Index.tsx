@@ -27,6 +27,7 @@ const Index = () => {
       case "reports": return <MedicalReportGen />;
       case "workflow": return <WorkflowDashboard />;
       case "community": return <CommunityHealth />;
+      case "portal": return <PatientPortal />;
       case "privacy": return <PrivacyPanel />;
       default: return <DashboardOverview />;
     }
