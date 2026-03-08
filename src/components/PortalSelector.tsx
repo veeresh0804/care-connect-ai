@@ -138,7 +138,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </div>
 
         {/* Mega Nav - Desktop: horizontal, Mobile: vertical dropdown */}
-        <nav className="border-t border-border bg-muted/50">
+        <nav className="border-t border-border bg-muted/50" role="navigation" aria-label="Main navigation">
           {/* Desktop nav */}
           <div className="hidden md:flex max-w-7xl mx-auto px-4 items-center gap-0.5 overflow-x-auto">
             {megaNavItems.map((item, i) => (
