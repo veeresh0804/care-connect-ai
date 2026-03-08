@@ -294,7 +294,7 @@ const PatientChat = () => {
                       <Stethoscope className="w-5 h-5 text-primary" />
                     </div>
                     {conv.online && (
-                      <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border-2 border-card" />
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-card" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
