@@ -2,6 +2,7 @@ import { useState } from "react";
 import PortalSelector from "@/components/PortalSelector";
 import HospitalSidebar from "@/components/HospitalSidebar";
 import PatientSidebar from "@/components/PatientSidebar";
+import GovtHeader from "@/components/GovtHeader";
 import DashboardOverview from "@/components/DashboardOverview";
 import AIDiagnostics from "@/components/AIDiagnostics";
 import PatientMonitoring from "@/components/PatientMonitoring";
@@ -15,7 +16,7 @@ import CommunityHealth from "@/components/CommunityHealth";
 import PatientPortal from "@/components/PatientPortal";
 import VideoConsultation from "@/components/portal/VideoConsultation";
 import PatientChat from "@/components/portal/PatientChat";
-import { Bell, Search, User, Building2 } from "lucide-react";
+import { Bell, Search, User, Building2, Landmark } from "lucide-react";
 
 type PortalType = "selector" | "hospital" | "patient";
 
@@ -60,39 +61,42 @@ const Index = () => {
     };
 
     return (
-      <div className="flex h-screen bg-background overflow-hidden">
-        <HospitalSidebar activeTab={hospitalTab} onTabChange={setHospitalTab} onSwitchPortal={() => setPortal("selector")} />
-        <div className="flex-1 flex flex-col min-w-0">
-          <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
-            <div>
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-primary" />
-                <h1 className="text-sm font-semibold text-foreground">{hospitalTitles[hospitalTab] || "Dashboard"}</h1>
-              </div>
-              <p className="text-[11px] text-muted-foreground">MedAI Hospital Administration</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
-                <Search className="w-4 h-4" />
-              </button>
-              <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground relative">
-                <Bell className="w-4 h-4" />
-                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
-              </button>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted">
-                <div className="w-6 h-6 rounded-full gradient-hero flex items-center justify-center">
-                  <User className="w-3 h-3 text-sidebar-foreground" />
+      <div className="flex flex-col h-screen bg-background overflow-hidden">
+        <GovtHeader />
+        <div className="flex flex-1 min-h-0">
+          <HospitalSidebar activeTab={hospitalTab} onTabChange={setHospitalTab} onSwitchPortal={() => setPortal("selector")} />
+          <div className="flex-1 flex flex-col min-w-0">
+            <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Landmark className="w-4 h-4 text-primary" />
+                  <h1 className="text-sm font-semibold text-foreground">{hospitalTitles[hospitalTab] || "Dashboard"}</h1>
                 </div>
-                <div>
-                  <p className="text-[10px] font-medium text-foreground">Dr. Sharma</p>
-                  <p className="text-[8px] text-muted-foreground">Admin</p>
+                <p className="text-[11px] text-muted-foreground">Digital Health Mission · Hospital Administration</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <button className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground">
+                  <Search className="w-4 h-4" />
+                </button>
+                <button className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground relative">
+                  <Bell className="w-4 h-4" />
+                  <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
+                </button>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted">
+                  <div className="w-6 h-6 rounded-full gradient-hero flex items-center justify-center">
+                    <User className="w-3 h-3 text-sidebar-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-medium text-foreground">Dr. Sharma</p>
+                    <p className="text-[8px] text-muted-foreground">Admin</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </header>
-          <main className="flex-1 overflow-y-auto p-6">
-            {renderHospitalContent()}
-          </main>
+            </header>
+            <main className="flex-1 overflow-y-auto p-6">
+              {renderHospitalContent()}
+            </main>
+          </div>
         </div>
       </div>
     );
@@ -124,36 +128,42 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-screen bg-background overflow-hidden">
-      <PatientSidebar activeTab={patientTab} onTabChange={setPatientTab} onSwitchPortal={() => setPortal("selector")} />
-      <div className="flex-1 flex flex-col min-w-0">
-        <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
-          <div>
-            <h1 className="text-sm font-semibold text-foreground">{patientTitles[patientTab] || "My Dashboard"}</h1>
-            <p className="text-[11px] text-muted-foreground">MedAI Patient Portal</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
-              <Search className="w-4 h-4" />
-            </button>
-            <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground relative">
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
-            </button>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted">
-              <div className="w-6 h-6 rounded-full gradient-primary flex items-center justify-center">
-                <User className="w-3 h-3 text-primary-foreground" />
+    <div className="flex flex-col h-screen bg-background overflow-hidden">
+      <GovtHeader />
+      <div className="flex flex-1 min-h-0">
+        <PatientSidebar activeTab={patientTab} onTabChange={setPatientTab} onSwitchPortal={() => setPortal("selector")} />
+        <div className="flex-1 flex flex-col min-w-0">
+          <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
+            <div>
+              <div className="flex items-center gap-2">
+                <Landmark className="w-4 h-4 text-secondary" />
+                <h1 className="text-sm font-semibold text-foreground">{patientTitles[patientTab] || "My Dashboard"}</h1>
               </div>
-              <div>
-                <p className="text-[10px] font-medium text-foreground">Ravi Kumar</p>
-                <p className="text-[8px] text-muted-foreground">Patient</p>
+              <p className="text-[11px] text-muted-foreground">Digital Health Mission · Patient Portal</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground">
+                <Search className="w-4 h-4" />
+              </button>
+              <button className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground relative">
+                <Bell className="w-4 h-4" />
+                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-destructive" />
+              </button>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-muted">
+                <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+                  <User className="w-3 h-3 text-secondary-foreground" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-medium text-foreground">Ravi Kumar</p>
+                  <p className="text-[8px] text-muted-foreground">Patient</p>
+                </div>
               </div>
             </div>
-          </div>
-        </header>
-        <main className="flex-1 overflow-y-auto p-6">
-          {renderPatientContent()}
-        </main>
+          </header>
+          <main className="flex-1 overflow-y-auto p-6">
+            {renderPatientContent()}
+          </main>
+        </div>
       </div>
     </div>
   );
