@@ -248,7 +248,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Portal Selection ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Portal selection">
           <div className="max-w-5xl mx-auto">
             <SectionHeading title="Select Your Portal" subtitle="Choose your role to access personalized healthcare services" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
