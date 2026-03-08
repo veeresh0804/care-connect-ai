@@ -302,7 +302,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Statistics (#5) ── */}
-        <section className="py-8 sm:py-12 px-4 gradient-hero">
+        <section className="py-8 sm:py-12 px-4 gradient-hero" aria-label="Public health statistics">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-lg sm:text-xl font-bold text-primary-foreground">Public Health Statistics</h2>
