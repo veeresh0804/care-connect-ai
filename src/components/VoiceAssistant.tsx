@@ -72,10 +72,9 @@ const VoiceAssistant = () => {
   }, []);
 
   const startListening = useCallback(() => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) return;
+    if (!SpeechRecognitionAPI) return;
 
-    const recognition = new SpeechRecognition();
+    const recognition = new SpeechRecognitionAPI();
     recognition.lang = lang.bcp47;
     recognition.continuous = false;
     recognition.interimResults = true;
