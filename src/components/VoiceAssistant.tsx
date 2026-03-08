@@ -66,7 +66,6 @@ const VoiceAssistant = () => {
 
   useEffect(() => {
     if (!SpeechRecognitionAPI) {
-    if (!SpeechRecognition) {
       setSpeechSupported(false);
     }
   }, []);
