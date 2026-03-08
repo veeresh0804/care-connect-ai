@@ -135,7 +135,7 @@ const HospitalSidebar = ({ activeTab, onTabChange, onSwitchPortal }: HospitalSid
 
   // Desktop: standard sidebar
   return (
-    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`}>
+    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`} role="navigation" aria-label="Hospital portal sidebar">
       {sidebarContent}
     </aside>
   );

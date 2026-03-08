@@ -148,7 +148,7 @@ const PatientSidebar = ({ activeTab, onTabChange, onSwitchPortal }: PatientSideb
   }
 
   return (
-    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`}>
+    <aside className={`gradient-hero flex flex-col transition-all duration-300 ${collapsed ? "w-16" : "w-60"}`} role="navigation" aria-label="Patient portal sidebar">
       {sidebarContent}
     </aside>
   );

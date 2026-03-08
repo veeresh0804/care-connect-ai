@@ -556,7 +556,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Transparency Footer (#12) ── */}
-        <footer className="bg-foreground text-background">
+        <footer className="bg-foreground text-background" role="contentinfo" aria-label="Site footer">
           <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div>
