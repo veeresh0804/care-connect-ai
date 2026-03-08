@@ -104,6 +104,7 @@ const Index = () => {
       case "voice": return <VoiceAssistant />;
       case "emergency": return <EmergencyAlerts />;
       case "video": return <VideoConsultation />;
+      case "chat": return <PatientChat />;
       default: return <PatientPortal key={patientTab} initialTab={patientTab} />;
     }
   };
@@ -116,6 +117,7 @@ const Index = () => {
     health: "Health Monitor",
     records: "Health Records",
     family: "Family Management",
+    chat: "Secure Messages",
     video: "Video Consultation",
     voice: "Voice Health Assistant",
     emergency: "Emergency",

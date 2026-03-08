@@ -16,6 +16,7 @@ import {
   LogOut,
   LayoutDashboard,
   Siren,
+  MessageSquare,
 } from "lucide-react";
 
 type NavItem = { icon: React.ElementType; label: string; id: string };
@@ -28,6 +29,7 @@ const navItems: NavItem[] = [
   { icon: TrendingUp, label: "Health Monitor", id: "health" },
   { icon: Shield, label: "Health Records", id: "records" },
   { icon: Users, label: "Family", id: "family" },
+  { icon: MessageSquare, label: "Messages", id: "chat" },
   { icon: Video, label: "Video Consult", id: "video" },
   { icon: Mic, label: "Voice Assistant", id: "voice" },
   { icon: Siren, label: "Emergency", id: "emergency" },
