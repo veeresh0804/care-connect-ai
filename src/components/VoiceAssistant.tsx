@@ -65,7 +65,7 @@ const VoiceAssistant = () => {
   }, [messages]);
 
   useEffect(() => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognitionAPI) {
     if (!SpeechRecognition) {
       setSpeechSupported(false);
     }
