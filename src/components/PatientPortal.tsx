@@ -40,8 +40,12 @@ const alerts = [
   { text: "Vaccination due: Influenza booster — schedule by end of March", type: "info" },
 ];
 
-const PatientPortal = () => {
-  const [activeTab, setActiveTab] = useState<PortalTab>("overview");
+interface PatientPortalProps {
+  initialTab?: string;
+}
+
+const PatientPortal = ({ initialTab = "overview" }: PatientPortalProps) => {
+  const [activeTab, setActiveTab] = useState<PortalTab>(initialTab as PortalTab);
 
   if (activeTab === "reports") return <PortalWrapper tab={activeTab} onTabChange={setActiveTab}><PatientReports /></PortalWrapper>;
   if (activeTab === "prescriptions") return <PortalWrapper tab={activeTab} onTabChange={setActiveTab}><PatientPrescriptions /></PortalWrapper>;
