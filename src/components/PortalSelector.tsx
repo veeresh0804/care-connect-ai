@@ -397,7 +397,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Health Awareness (#9) ── */}
-        <section className="py-8 sm:py-12 px-4">
+        <section className="py-8 sm:py-12 px-4" aria-label="Health awareness resources">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Health Awareness Resources" subtitle="Educational content for better public health" icon={BookOpen} />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
