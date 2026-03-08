@@ -5,6 +5,11 @@ import AIDiagnostics from "@/components/AIDiagnostics";
 import PatientMonitoring from "@/components/PatientMonitoring";
 import WorkflowDashboard from "@/components/WorkflowDashboard";
 import PrivacyPanel from "@/components/PrivacyPanel";
+import VoiceAssistant from "@/components/VoiceAssistant";
+import PredictiveRisk from "@/components/PredictiveRisk";
+import EmergencyAlerts from "@/components/EmergencyAlerts";
+import MedicalReportGen from "@/components/MedicalReportGen";
+import CommunityHealth from "@/components/CommunityHealth";
 import { Bell, Search, User } from "lucide-react";
 
 const Index = () => {
@@ -14,8 +19,13 @@ const Index = () => {
     switch (activeTab) {
       case "dashboard": return <DashboardOverview />;
       case "diagnostics": return <AIDiagnostics />;
+      case "voice": return <VoiceAssistant />;
+      case "predictive": return <PredictiveRisk />;
       case "monitoring": return <PatientMonitoring />;
+      case "emergency": return <EmergencyAlerts />;
+      case "reports": return <MedicalReportGen />;
       case "workflow": return <WorkflowDashboard />;
+      case "community": return <CommunityHealth />;
       case "privacy": return <PrivacyPanel />;
       default: return <DashboardOverview />;
     }
@@ -24,17 +34,20 @@ const Index = () => {
   const tabTitles: Record<string, string> = {
     dashboard: "Dashboard",
     diagnostics: "AI Diagnostics",
+    voice: "Voice Health Assistant",
+    predictive: "Predictive Risk Engine",
     monitoring: "Patient Monitoring",
+    emergency: "Emergency Alerts",
+    reports: "Medical Report Generator",
     workflow: "Workflow Automation",
+    community: "Community Health Worker",
     privacy: "Privacy & Security",
-    settings: "Settings",
   };
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Top Bar */}
         <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card">
           <div>
             <h1 className="text-sm font-semibold text-foreground">{tabTitles[activeTab] || "Dashboard"}</h1>
@@ -53,8 +66,6 @@ const Index = () => {
             </div>
           </div>
         </header>
-
-        {/* Content */}
         <main className="flex-1 overflow-y-auto p-6">
           {renderContent()}
         </main>

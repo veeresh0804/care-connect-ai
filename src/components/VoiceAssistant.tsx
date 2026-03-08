@@ -2,6 +2,13 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Mic, MicOff, Volume2, Globe, MessageSquare, Sparkles, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+declare global {
+  interface Window {
+    SpeechRecognition: typeof SpeechRecognition;
+    webkitSpeechRecognition: typeof SpeechRecognition;
+  }
+}
+
 type Language = { code: string; label: string; bcp47: string };
 
 const languages: Language[] = [

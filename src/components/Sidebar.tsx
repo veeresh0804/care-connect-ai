@@ -10,6 +10,11 @@ import {
   ChevronLeft,
   ChevronRight,
   Heart,
+  Mic,
+  TrendingUp,
+  Siren,
+  FileText,
+  Users,
 } from "lucide-react";
 
 type NavItem = {
@@ -21,10 +26,14 @@ type NavItem = {
 const navItems: NavItem[] = [
   { icon: LayoutDashboard, label: "Dashboard", id: "dashboard" },
   { icon: Brain, label: "AI Diagnostics", id: "diagnostics" },
+  { icon: Mic, label: "Voice Assistant", id: "voice" },
+  { icon: TrendingUp, label: "Predictive Risk", id: "predictive" },
   { icon: Monitor, label: "Patient Monitoring", id: "monitoring" },
+  { icon: Siren, label: "Emergency Alerts", id: "emergency" },
+  { icon: FileText, label: "Report Generator", id: "reports" },
   { icon: Calendar, label: "Workflow", id: "workflow" },
+  { icon: Users, label: "Community Health", id: "community" },
   { icon: Shield, label: "Privacy & Security", id: "privacy" },
-  { icon: Settings, label: "Settings", id: "settings" },
 ];
 
 interface SidebarProps {
@@ -42,25 +51,25 @@ const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
       }`}
     >
       <div className="flex items-center gap-2 px-4 py-5 border-b border-sidebar-border">
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-primary shadow-glow">
+        <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-primary shadow-glow shrink-0">
           <Heart className="w-4 h-4 text-primary-foreground" />
         </div>
         {!collapsed && (
           <div className="overflow-hidden">
             <h1 className="text-sm font-semibold text-sidebar-primary">MedAI</h1>
-            <p className="text-[10px] text-sidebar-foreground opacity-60">HealthTech Platform</p>
+            <p className="text-[10px] text-sidebar-foreground opacity-60">Rural HealthTech</p>
           </div>
         )}
       </div>
 
-      <nav className="flex-1 py-4 space-y-1 px-2">
+      <nav className="flex-1 py-3 space-y-0.5 px-2 overflow-y-auto">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
           return (
             <button
               key={item.id}
               onClick={() => onTabChange(item.id)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs transition-all ${
                 isActive
                   ? "bg-sidebar-accent text-sidebar-primary font-medium"
                   : "text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-primary"

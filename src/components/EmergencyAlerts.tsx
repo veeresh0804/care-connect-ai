@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Activity } from "lucide-react";
 import { AlertTriangle, Phone, MapPin, Siren, Heart, Wind, Thermometer, Bell, CheckCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
