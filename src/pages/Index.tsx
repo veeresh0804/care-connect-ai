@@ -13,6 +13,7 @@ import EmergencyAlerts from "@/components/EmergencyAlerts";
 import MedicalReportGen from "@/components/MedicalReportGen";
 import CommunityHealth from "@/components/CommunityHealth";
 import PatientPortal from "@/components/PatientPortal";
+import VideoConsultation from "@/components/portal/VideoConsultation";
 import { Bell, Search, User, Building2 } from "lucide-react";
 
 type PortalType = "selector" | "hospital" | "patient";
@@ -101,6 +102,7 @@ const Index = () => {
     switch (patientTab) {
       case "voice": return <VoiceAssistant />;
       case "emergency": return <EmergencyAlerts />;
+      case "video": return <VideoConsultation />;
       default: return <PatientPortal key={patientTab} initialTab={patientTab} />;
     }
   };
@@ -113,6 +115,7 @@ const Index = () => {
     health: "Health Monitor",
     records: "Health Records",
     family: "Family Management",
+    video: "Video Consultation",
     voice: "Voice Health Assistant",
     emergency: "Emergency",
   };

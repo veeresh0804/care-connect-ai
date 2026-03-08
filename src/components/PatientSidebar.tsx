@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Activity,
   Heart,
+  Video,
   FileText,
   Pill,
   Calendar,
@@ -27,6 +28,7 @@ const navItems: NavItem[] = [
   { icon: TrendingUp, label: "Health Monitor", id: "health" },
   { icon: Shield, label: "Health Records", id: "records" },
   { icon: Users, label: "Family", id: "family" },
+  { icon: Video, label: "Video Consult", id: "video" },
   { icon: Mic, label: "Voice Assistant", id: "voice" },
   { icon: Siren, label: "Emergency", id: "emergency" },
 ];
