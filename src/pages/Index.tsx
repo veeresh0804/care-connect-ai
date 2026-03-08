@@ -115,6 +115,7 @@ const Index = () => {
     health: "Health Monitor",
     records: "Health Records",
     family: "Family Management",
+    video: "Video Consultation",
     voice: "Voice Health Assistant",
     emergency: "Emergency",
   };
