@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   Activity,
+  Heart,
   Video,
   FileText,
   Pill,
