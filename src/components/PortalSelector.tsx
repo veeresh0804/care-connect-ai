@@ -373,7 +373,7 @@ const PortalSelector = ({ onSelect }: PortalSelectorProps) => {
         </section>
 
         {/* ── Government Health Programs (#7) ── */}
-        <section className="py-8 sm:py-12 px-4 bg-muted/50">
+        <section className="py-8 sm:py-12 px-4 bg-muted/50" aria-label="Government health programs">
           <div className="max-w-7xl mx-auto">
             <SectionHeading title="Government Health Programs" subtitle="National public health initiatives for all citizens" icon={Award} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
