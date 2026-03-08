@@ -124,7 +124,7 @@ const HospitalSidebar = ({ activeTab, onTabChange, onSwitchPortal }: HospitalSid
         {mobileOpen && (
           <>
             <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setMobileOpen(false)} />
-            <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 gradient-hero flex flex-col shadow-xl">
+            <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 gradient-hero flex flex-col shadow-xl" role="navigation" aria-label="Hospital portal sidebar">
               {sidebarContent}
             </aside>
           </>
