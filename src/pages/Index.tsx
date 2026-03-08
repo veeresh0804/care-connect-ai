@@ -102,6 +102,7 @@ const Index = () => {
     switch (patientTab) {
       case "voice": return <VoiceAssistant />;
       case "emergency": return <EmergencyAlerts />;
+      case "video": return <VideoConsultation />;
       default: return <PatientPortal key={patientTab} initialTab={patientTab} />;
     }
   };
