@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Activity, Brain, LayoutDashboard, Monitor, Shield, Calendar,
   ChevronLeft, ChevronRight, Mic, TrendingUp, Siren, FileText,
-  Users, Building2, LogOut, Landmark, Menu, X,
+  Users, Building2, LogOut, Landmark, Menu, X, Stethoscope,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -11,6 +11,7 @@ type NavItem = { icon: React.ElementType; label: string; id: string };
 const navItems: NavItem[] = [
   { icon: LayoutDashboard, label: "Dashboard", id: "dashboard" },
   { icon: Brain, label: "AI Diagnostics", id: "diagnostics" },
+  { icon: Stethoscope, label: "AI Triage", id: "triage" },
   { icon: Mic, label: "Voice Assistant", id: "voice" },
   { icon: TrendingUp, label: "Predictive Risk", id: "predictive" },
   { icon: Monitor, label: "Patient Monitoring", id: "monitoring" },
