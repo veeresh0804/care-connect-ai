@@ -5,7 +5,26 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database, Json } from "@/integrations/supabase/types";
 import { toast } from "@/hooks/use-toast";
+
+type HealthRecordInsert = Database["public"]["Tables"]["health_records"]["Insert"];
+
+interface TriageVitalSigns {
+  heart_rate: string;
+  bp_systolic: string;
+  bp_diastolic: string;
+  spo2: string;
+  temperature: string;
+  respiratory_rate: string;
+  symptoms: string;
+  age: string | null;
+  sex: string | null;
+  history: string | null;
+  triage: TriageResult;
+  assessed_at: string;
+  [key: string]: Json;
+}
 
 interface TriageResult {
   category: "Emergency" | "Urgent" | "Routine";
