@@ -5,7 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database, Json } from "@/integrations/supabase/types";
 import { toast } from "@/hooks/use-toast";
+
+type HealthRecordInsert = Database["public"]["Tables"]["health_records"]["Insert"];
 
 interface TriageResult {
   category: "Emergency" | "Urgent" | "Routine";
@@ -16,6 +19,23 @@ interface TriageResult {
   recommended_actions: string[];
   suggested_department: string;
   estimated_wait_minutes: number;
+  [key: string]: Json;
+}
+
+interface TriageVitalSigns {
+  heart_rate: string;
+  bp_systolic: string;
+  bp_diastolic: string;
+  spo2: string;
+  temperature: string;
+  respiratory_rate: string;
+  symptoms: string;
+  age: string | null;
+  sex: string | null;
+  history: string | null;
+  triage: TriageResult;
+  assessed_at: string;
+  [key: string]: Json;
 }
 
 const categoryStyles: Record<string, { bg: string; text: string; border: string; icon: any }> = {
@@ -81,19 +101,21 @@ const AITriage = () => {
     if (!result) return;
     setSaving(true);
     try {
-      const { error } = await supabase.from("health_records").insert({
+      const vitalSigns: TriageVitalSigns = {
+        ...vitals,
+        symptoms,
+        age: age || null,
+        sex: sex || null,
+        history: history || null,
+        triage: result,
+        assessed_at: new Date().toISOString(),
+      };
+      const payload: HealthRecordInsert = {
         record_type: "ai_triage",
-        vital_signs: {
-          ...vitals,
-          symptoms,
-          age: age || null,
-          sex: sex || null,
-          history: history || null,
-          triage: result,
-          assessed_at: new Date().toISOString(),
-        } as any,
+        vital_signs: vitalSigns,
         notes: `AI Triage: ${result.category} (acuity ${result.acuity_score}). ${result.reasoning}`,
-      });
+      };
+      const { error } = await supabase.from("health_records").insert(payload);
       if (error) throw error;
       setSaved(true);
       toast({ title: "Saved", description: "Triage assessment stored in health records." });
