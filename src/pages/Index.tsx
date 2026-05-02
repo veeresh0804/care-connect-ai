@@ -5,6 +5,7 @@ import PatientSidebar from "@/components/PatientSidebar";
 import GovtHeader from "@/components/GovtHeader";
 import DashboardOverview from "@/components/DashboardOverview";
 import AIDiagnostics from "@/components/AIDiagnostics";
+import AITriage from "@/components/AITriage";
 import PatientMonitoring from "@/components/PatientMonitoring";
 import WorkflowDashboard from "@/components/WorkflowDashboard";
 import PrivacyPanel from "@/components/PrivacyPanel";
@@ -35,6 +36,7 @@ const Index = () => {
       switch (hospitalTab) {
         case "dashboard": return <DashboardOverview />;
         case "diagnostics": return <AIDiagnostics />;
+        case "triage": return <AITriage />;
         case "voice": return <VoiceAssistant />;
         case "predictive": return <PredictiveRisk />;
         case "monitoring": return <PatientMonitoring />;
@@ -50,6 +52,7 @@ const Index = () => {
     const hospitalTitles: Record<string, string> = {
       dashboard: "Hospital Dashboard",
       diagnostics: "AI Diagnostics",
+      triage: "AI Triage Workflow",
       voice: "Voice Health Assistant",
       predictive: "Predictive Risk Engine",
       monitoring: "Patient Monitoring",
