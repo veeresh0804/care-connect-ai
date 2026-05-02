@@ -10,6 +10,18 @@ import { toast } from "@/hooks/use-toast";
 
 type HealthRecordInsert = Database["public"]["Tables"]["health_records"]["Insert"];
 
+interface TriageResult {
+  category: "Emergency" | "Urgent" | "Routine";
+  acuity_score: number;
+  confidence: number;
+  reasoning: string;
+  red_flags: string[];
+  recommended_actions: string[];
+  suggested_department: string;
+  estimated_wait_minutes: number;
+  [key: string]: Json;
+}
+
 interface TriageVitalSigns {
   heart_rate: string;
   bp_systolic: string;
@@ -24,17 +36,6 @@ interface TriageVitalSigns {
   triage: TriageResult;
   assessed_at: string;
   [key: string]: Json;
-}
-
-interface TriageResult {
-  category: "Emergency" | "Urgent" | "Routine";
-  acuity_score: number;
-  confidence: number;
-  reasoning: string;
-  red_flags: string[];
-  recommended_actions: string[];
-  suggested_department: string;
-  estimated_wait_minutes: number;
 }
 
 const categoryStyles: Record<string, { bg: string; text: string; border: string; icon: any }> = {
