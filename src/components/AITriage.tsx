@@ -91,7 +91,7 @@ const AITriage = () => {
           history: history || null,
           triage: result,
           assessed_at: new Date().toISOString(),
-        },
+        } as any,
         notes: `AI Triage: ${result.category} (acuity ${result.acuity_score}). ${result.reasoning}`,
       });
       if (error) throw error;
